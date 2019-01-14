@@ -6,15 +6,17 @@
 
 
     <EditText
-        android:textAlignment="center"
+        android:id="@+id/editable_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
-        android:id="@+id/editable_item"/>
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColorLink="@color/colorPrimary"
+        android:textSize="30sp" />
     <LinearLayout
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"

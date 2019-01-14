@@ -40,7 +40,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, item);
-        contentValues.put(COL3, 1);
 
         Log.d(TAG, "addData: Adding " + item + " to " + TABLE_NAME);
 
@@ -86,6 +85,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 " AND " + COL2 + " = '" + oldName + "'";
         Log.d(TAG, "updateName: query: " + query);
         Log.d(TAG, "updateName: Setting name to " + newName);
+        db.execSQL(query);
+    }
+
+    public void updateStatus(int newStatus, int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "UPDATE " + TABLE_NAME + " SET " + COL3 +
+                " = " + newStatus + " WHERE " + COL1 + " = " + id;
+        Log.d(TAG, "updateStatus: query: " + query);
+        Log.d(TAG, "updateStatus: Setting status to " + newStatus);
         db.execSQL(query);
     }
 

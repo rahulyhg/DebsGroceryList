@@ -10,8 +10,10 @@
         android:id="@+id/checkBox"
         android:layout_width="51dp"
         android:layout_height="59dp"
+        android:layout_marginRight="0dp"
         android:layout_weight="10"
-        android:layout_marginRight="0dp" />
+        android:textColorLink="@color/colorPrimary"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,12 +22,13 @@
         android:layout_weight="90">
 
         <TextView
-            android:gravity="left|center_vertical"
-            android:text="TextView1"
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/textView1"
-            android:layout_weight="66.6"/>
+            android:layout_weight="66.6"
+            android:gravity="left|center_vertical"
+            android:text="TextView1"
+            android:textSize="30sp" />
 
     </LinearLayout>
 

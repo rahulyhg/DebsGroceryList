@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TableLayout;
@@ -33,7 +34,7 @@ public class ListDataActivity extends AppCompatActivity {
     private static final String TAG = "ListDataActivity";
 
     DatabaseHelper mDatabaseHelper;
-
+    private CheckBox chkBox;
     private ListView mListView;
     private Button delAll;
     ArrayList<Items> itemClass; //FAYE
@@ -51,6 +52,7 @@ public class ListDataActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listView);
         mDatabaseHelper = new DatabaseHelper(this);
         delAll = (Button) findViewById(R.id.btnDeleteAll);
+        chkBox = (CheckBox) findViewById(R.id.checkBox);
 
         populateListView();
 
@@ -104,7 +106,6 @@ public class ListDataActivity extends AppCompatActivity {
         itemClass = new ArrayList<>();
         Cursor data = mDatabaseHelper.getData();
         int numRows = data.getCount();
-        Log.d("faye","here");
         if(numRows ==0){
             toastMessage("Nothing to show on your Shopping List!");
         }
@@ -114,7 +115,7 @@ public class ListDataActivity extends AppCompatActivity {
                 //get the value from the database in column 1
                 //listData.add(data.getString(1));
 //                cursor.getColumnIndex("<columnName>")
-                items = new Items(data.getString(1), data.getInt(2));
+                items = new Items(data.getInt(0),data.getString(1), data.getInt(2));
                 itemClass.add(items);
             }
             MultiColumnListAdapter adapter = new MultiColumnListAdapter(this,R.layout.list_row,itemClass);
@@ -134,7 +135,6 @@ public class ListDataActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 String name = adapterView.getItemAtPosition(i).toString();
-
 
                 TextView textViewItem = ((TextView) view.findViewById(R.id.textView1));
                 // get the clicked item name
@@ -158,7 +158,10 @@ public class ListDataActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
+
+
 
     /**
      * customizable toast
