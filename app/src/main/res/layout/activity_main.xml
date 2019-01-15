@@ -20,6 +20,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="100dp"
             android:textAlignment="center"
+            android:textSize="30sp"
             android:textColorLink="@color/colorPrimary" />
     </RelativeLayout>
 
@@ -30,17 +31,18 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_marginLeft="70dp"
+            android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnAdd"
-            android:text="Add"/>
+            android:layout_marginLeft="70dp"
+            android:text="Add" />
 
         <Button
             android:id="@+id/btnView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="39dp"
             android:layout_toRightOf="@+id/btnAdd"
             android:text="View List" />
 
